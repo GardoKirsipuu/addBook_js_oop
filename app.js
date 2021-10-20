@@ -16,10 +16,14 @@ function addBook(e) {
 	const bookTitle = bookTitleInput.value;
 	const bookAuthor = bookAuthorInput.value;
 	const bookISBN = bookISBNInput.value;
-	let bookNew = new book(bookTitle, bookAuthor, bookISBN);
-	ui.addBook(bookNew);
-	ls.addBook(bookNew);
-	e.preventDefault();
+	if(bookTitle === "" || bookAuthor === "" || bookISBN === ""){
+		window.alert("Please fill in the fields!")
+	} else {
+		let bookNew = new book(bookTitle, bookAuthor, bookISBN);
+		ui.addBook(bookNew);
+		ls.addBook(bookNew);
+		e.preventDefault();
+	}
 }
 
 function deleteBook(e){
